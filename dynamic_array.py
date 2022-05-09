@@ -3,6 +3,7 @@ import operator
 
 class Dynamic_array:
 
+
     def __init__(self,capacity=10):
         'Create an empty array.'
         self._n = 0  # size
