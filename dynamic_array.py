@@ -46,7 +46,7 @@ def make_array(Dynamic_array, c):
 
 
 def array_resize(Dynamic_array, c):
-    B = make_array(Dynamic_array,c)
+    B = make_array(Dynamic_array, c)
     # After expansion, you need to copy the elements
     # in the original array to the new array
     for k in range(Dynamic_array._n):
@@ -55,15 +55,17 @@ def array_resize(Dynamic_array, c):
     Dynamic_array._capacity = c
     return Dynamic_array
 
+
 def append(Dynamic_array0, obj):
     Dynamic_array = new_item(Dynamic_array0)
     # When the current element of the array is full,
     # the expansion capacity is twice that of the original one, and it is added
     if Dynamic_array._n == Dynamic_array._capacity:
-        Dynamic_array=array_resize(Dynamic_array,2 * Dynamic_array._capacity)
+        Dynamic_array = array_resize(Dynamic_array, 2 * Dynamic_array._capacity)
     Dynamic_array._A[Dynamic_array._n] = obj
     Dynamic_array._n += 1
     return Dynamic_array
+
 
 def remove_value(Dynamic_array0, value):
     Dynamic_array = new_item(Dynamic_array0)
@@ -91,8 +93,8 @@ def remove_index(Dynamic_array0, index):
             return Dynamic_array
 
 
-def member(value,Dynamic_array):
-    if Dynamic_array == None:
+def member(value, Dynamic_array):
+    if Dynamic_array is None:
         arr_len = 0
     else:
         arr_len = Dynamic_array._n
@@ -104,8 +106,7 @@ def member(value,Dynamic_array):
 
 def print_all(Dynamic_array):
     for i in range(Dynamic_array._n):
-        print(Dynamic_array._A[i], end = ' ')
-    print()
+        print(Dynamic_array._A[i])
 
 
 def get_array(Dynamic_array):
@@ -120,7 +121,8 @@ def cons(a, Dynamic_array1):
 
     if type(a) != list:
         if Dynamic_array0._n == Dynamic_array0._capacity:
-            Dynamic_array0=array_resize(Dynamic_array0, 2 * Dynamic_array0._capacity)
+            Dynamic_array0 = array_resize(Dynamic_array0,
+                                          2 * Dynamic_array0._capacity)
 
         for i in range(Dynamic_array0._n-1, -1, -1):
             Dynamic_array0._A[i+1] = Dynamic_array0._A[i]
@@ -129,7 +131,8 @@ def cons(a, Dynamic_array1):
         Dynamic_array0._A[0] = a
     elif type(a) == list:
         if Dynamic_array0._n+len(a) > Dynamic_array0._capacity:
-            Dynamic_array0 = array_resize(Dynamic_array0, 2 * Dynamic_array0._capacity)
+            Dynamic_array0 = array_resize(Dynamic_array0,
+                                          2 * Dynamic_array0._capacity)
 
         new_empty = Dynamic_array()
         for i in a:
@@ -166,7 +169,7 @@ def to_list(Dynamic_array):
 
 def from_list(temp_list):
     Dynamic_array0 = Dynamic_array()
-    while(Dynamic_array0._capacity<len(temp_list)):
+    while(Dynamic_array0._capacity < len(temp_list)):
         Dynamic_array0 = array_resize(Dynamic_array0, 2 *
                                       Dynamic_array0._capacity)
     Dynamic_array0._n = len(temp_list)
@@ -177,7 +180,7 @@ def from_list(temp_list):
 
 def concat(Dynamic_array1, Dynamic_array2):
     temp_list = get_array(Dynamic_array1)
-    return cons(temp_list,Dynamic_array2)
+    return cons(temp_list, Dynamic_array2)
 
 
 def filter(Dynamic_array1, new_function):

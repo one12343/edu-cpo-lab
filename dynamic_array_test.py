@@ -104,7 +104,7 @@ class TestMutableULList(unittest.TestCase):
         temp_list = [1, 4, 6, 7, 9, 12, 17]
         for i in temp_list:
             array = append(array, i)
-        temp1=filter(array, is_odd)  # (array,function)
+        temp1 = filter(array, is_odd)  # (array,function)
         self.assertEqual(str(temp1), "[1, 7, 9, 17]")
 
         array = Dynamic_array()
@@ -164,7 +164,7 @@ def is_odd(x):
 
 # Delete None or empty string
 def is_not_empty(s):
-    if s != None:
+    if s is not None:
         return (len(s.strip()) > 0)
     return s is not None
 
