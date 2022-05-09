@@ -61,7 +61,8 @@ def append(Dynamic_array0, obj):
     # When the current element of the array is full,
     # the expansion capacity is twice that of the original one, and it is added
     if Dynamic_array._n == Dynamic_array._capacity:
-        Dynamic_array = array_resize(Dynamic_array, 2 * Dynamic_array._capacity)
+        Dynamic_array = array_resize(Dynamic_array,
+                                     2 * Dynamic_array._capacity)
     Dynamic_array._A[Dynamic_array._n] = obj
     Dynamic_array._n += 1
     return Dynamic_array
