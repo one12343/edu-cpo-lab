@@ -27,9 +27,9 @@ After GitHub active, we passed all tests.
 
 - Liu Riheng<br>
   1.Define data structures and implement basic methods such as
-dynamically expanding the array,appending, removing, etc.<br>
-  2.Implement `test_dynamic_array.py` which include unit tests.<br>
-  3.Complete readme and GitHub active.<br>
+dynamically expanding the array,appending, removing, etc.
+  > 2.Implement `test_dynamic_array.py` which include unit tests.<br>
+  > 3.Complete readme and GitHub active.<br>
 
 - Chen Weite<br>
   1.Implement other methods of Dynamic_array.<br>
