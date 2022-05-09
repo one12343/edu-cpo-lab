@@ -44,6 +44,6 @@ After GitHub active, we passed all tests.
 
 Initial
 
-1.Implement `dynamic_array.py` and `test_dynamic_array.py` 
-2.GitHub active successfully   
+1.Implement `dynamic_array.py` and `test_dynamic_array.py`  
+2.GitHub active successfully  
 3.Update README  
