@@ -25,13 +25,13 @@ After GitHub active, we passed all tests.
 
 ## Contribution
 
-- Liu Riheng  
+- Liu Riheng
   1.Define data structures and implement basic methods such as 
-    dynamically expanding the array,appending, removing, etc.  
-  2.Implement `test_dynamic_array.py` which include unit tests.  
-  3.Complete readme and GitHub active.  
+    dynamically expanding the array,appending, removing, etc.
+  2.Implement `test_dynamic_array.py` which include unit tests.<br>
+  3.Complete readme and GitHub active.
 
-- Chen Weite  
+- Chen Weite
   1.Implement other methods of Dynamic_array.  
   2.Check code style and unify code formatting.  
   3.Collect the resources required by lab2, including the use of software,
