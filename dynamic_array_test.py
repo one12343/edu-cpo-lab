@@ -4,6 +4,7 @@ import hypothesis.strategies as st
 from dynamic_array import *
 import math
 
+
 class TestMutableULList(unittest.TestCase):
     # first we use unit test!
 
@@ -13,7 +14,7 @@ class TestMutableULList(unittest.TestCase):
         array = Dynamic_array()
         l1 = cons(None, cons(1, array))
         l2 = cons(1, cons(None, array))
-        l3 = cons([3,2], cons(None, array))
+        l3 = cons([3, 2], cons(None, array))
         self.assertEqual(str(array), "[]")
         self.assertEqual(str(l1), "[None, 1]")
         self.assertEqual(str(l2), "[1, None]")
@@ -22,7 +23,6 @@ class TestMutableULList(unittest.TestCase):
         self.assertNotEqual(str(l1), str(l2))
         self.assertEqual(str(l1), str(cons(None, cons(1, array))))
         self.assertEqual(str(l3), "[3, 2, None]")
-
 
         # print('\nTesting length...')
         self.assertEqual(get_len(array), 0)
@@ -35,9 +35,9 @@ class TestMutableULList(unittest.TestCase):
         array2 = Dynamic_array()
         temp_list = [1, 2, 3, 4, 5, 6]
         for i in temp_list:
-            array2=append(array2,i)
-        self.assertEqual(get_array(remove_value(array2, 3)), [1,2,4,5,6])
-        self.assertEqual(get_array(remove_value(array2, 5)), [1,2,3,4,6])
+            array2 = append(array2, i)
+        self.assertEqual(get_array(remove_value(array2, 3)), [1, 2, 4, 5, 6])
+        self.assertEqual(get_array(remove_value(array2, 5)), [1, 2, 3, 4, 6])
 
         # print('\nTesting member...')
         self.assertFalse(member(None, array))
@@ -47,7 +47,7 @@ class TestMutableULList(unittest.TestCase):
 
         # print('\nTesting reverse...')
         self.assertEqual(l1, reverse_arr(l2))
-        temp_list_reverse=[6,5,4,3,2,1]
+        temp_list_reverse = [6, 5, 4, 3, 2, 1]
         array5 = Dynamic_array()
         array6 = Dynamic_array()
         for i in temp_list:
@@ -75,14 +75,13 @@ class TestMutableULList(unittest.TestCase):
             lst.remove(e)
         self.assertEqual(lst, [])
 
-
         array = Dynamic_array()
-        temp_list=[1,2,3,4,5,6]
+        temp_list = [1, 2, 3, 4, 5, 6]
         for i in temp_list:
-            array=append(array,i)
-        get_a=get_array(array)
+            array = append(array, i)
+        get_a = get_array(array)
         self.assertEqual(get_a, temp_list)
-        temp1=get_item(array,2)
+        temp1 = get_item(array, 2)
         self.assertEqual(temp1, temp_list[2])
         temp1 = get_item(array, 5)
         self.assertEqual(temp1, temp_list[5])
@@ -92,20 +91,20 @@ class TestMutableULList(unittest.TestCase):
         array4 = Dynamic_array()
         self.assertEqual(array3, array4)
         for i in temp_list:
-            array3 = append(array3,i)
+            array3 = append(array3, i)
             array4 = append(array4, i)
         self.assertEqual(array3, array4)
 
         # print('\nTest_change_value...')
-        array3[3]=0
+        array3[3] = 0
         self.assertEqual(str(array3), "[1, 2, 3, 0, 5, 6]")
 
         # print('\nTest_filter...')
-        array=Dynamic_array()
-        temp_list=[1, 4, 6, 7, 9, 12, 17]
+        array = Dynamic_array()
+        temp_list = [1, 4, 6, 7, 9, 12, 17]
         for i in temp_list:
-            array = append(array,i)
-        temp1=filter(array,is_odd)  #(array,function)
+            array = append(array, i)
+        temp1=filter(array, is_odd)  # (array,function)
         self.assertEqual(str(temp1), "[1, 7, 9, 17]")
 
         array = Dynamic_array()
@@ -116,32 +115,32 @@ class TestMutableULList(unittest.TestCase):
         self.assertEqual(str(temp2), "['test', 'str', 'END']")
 
         array = Dynamic_array()
-        temp_list = [1,2,3,2,5,2,7,2,9]
+        temp_list = [1, 2, 3, 2, 5, 2, 7, 2, 9]
         for i in temp_list:
             array = append(array, i)
         temp3 = filter(array, remove_value_2)  # (array,function)
         self.assertEqual(str(temp3), "[1, 3, 5, 7, 9]")
 
         array = Dynamic_array()
-        for i in range(1,101):
-            array = append(array,i)
+        for i in range(1, 101):
+            array = append(array, i)
         temp4 = filter(array, is_sqr)  # (array,function)
         self.assertEqual(str(temp4), "[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]")
 
         # print('\nTest_map...')
-        array=Dynamic_array()
-        temp_list=[2,3,4,5,6,7,8,9]
+        array = Dynamic_array()
+        temp_list = [2, 3, 4, 5, 6, 7, 8, 9]
         for i in temp_list:
             array = append(array, i)
-        temp=map(array,my_square)
+        temp = map(array, my_square)
         self.assertEqual(str(temp), "[4, 9, 16, 25, 36, 49, 64, 81]")
 
         temp2 = map(temp, my_sqr)
-        self.assertEqual(str(temp2), str(temp_list))  #[2,3,4,5,6,7,8,9]
+        self.assertEqual(str(temp2), str(temp_list))  # [2,3,4,5,6,7,8,9]
 
         # print('\nTest_reduce...')
         array = Dynamic_array()
-        temp_list=[1, 2, 3, 4, 5]
+        temp_list = [1, 2, 3, 4, 5]
         for i in temp_list:
             array = append(array, i)
         result = reduce(array, my_add)
@@ -150,41 +149,48 @@ class TestMutableULList(unittest.TestCase):
         # print('\nTest_empty...')
         array = Dynamic_array()
         self.assertEqual(empty(array), True)
-        array=append(array,1)
+        array = append(array, 1)
         self.assertEqual(empty(array), False)
-        array=remove_value(array,1)
+        array = remove_value(array, 1)
         self.assertTrue(empty(array))
         array = append(array, 2)
         self.assertFalse(empty(array))
+
 
 # print('\nThese are functions to test filter')
 def is_odd(x):
     return x % 2 == 1
 
-#Delete None or empty string
-def is_not_empty(s):
-    if s!=None:
-        return (len(s.strip()) > 0)
-    return (s!=None )
 
-#Filter out the number whose square root is an integer in 1 ~ 100
+# Delete None or empty string
+def is_not_empty(s):
+    if s != None:
+        return (len(s.strip()) > 0)
+    return s is not None
+
+
+# Filter out the number whose square root is an integer in 1 ~ 100
 def is_sqr(x):
     return math.sqrt(x) % 1 == 0
 
+
 def remove_value_2(x):
-    return x!=2
+    return x != 2
 
 
 # print('\nThese are functions to test map')
 def my_square(n):
     return n * n
 
+
 def my_sqr(x):
     return int(math.sqrt(x))
 
+
 # print('\nTest of function of reduce')
-def my_add(x,y):
+def my_add(x, y):
     return x+y
+
 
 if __name__ == '__main__':
     unittest.main()
