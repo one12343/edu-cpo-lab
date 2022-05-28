@@ -117,8 +117,8 @@ def cons(a, dynamic_array0):
     dynamic_array = new_item(dynamic_array0)
     if type(a) != list:
         if dynamic_array._n == dynamic_array._capacity:
-            dynamic_array = array_resize(dynamic_array, \
-                                          2 * dynamic_array._capacity)
+            dynamic_array = array_resize(dynamic_array,
+                                         2 * dynamic_array._capacity)
 
         for i in range(dynamic_array._n-1, -1, -1):
             dynamic_array._A[i+1] = dynamic_array._A[i]
@@ -127,8 +127,8 @@ def cons(a, dynamic_array0):
         dynamic_array._A[0] = a
     elif type(a) == list:
         if dynamic_array._n+len(a) > dynamic_array._capacity:
-            dynamic_array = array_resize(dynamic_array, \
-                                          2 * dynamic_array._capacity)
+            dynamic_array = array_resize(dynamic_array,
+                                         2 * dynamic_array._capacity)
 
         new_empty = Dynamic_array()
         for i in a:
@@ -165,7 +165,7 @@ def to_list(dynamic_array):
 def from_list(temp_list):
     dynamic_array = Dynamic_array()
     while(dynamic_array._capacity < len(temp_list)):
-        dynamic_array = array_resize(dynamic_array, \
+        dynamic_array = array_resize(dynamic_array,
                                      2 * dynamic_array._capacity)
     dynamic_array._n = len(temp_list)
     for i in range(dynamic_array._n):
