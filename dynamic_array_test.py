@@ -1,5 +1,5 @@
 import unittest
-from hypothesis import given, settings
+from hypothesis import given
 import hypothesis.strategies as st
 from dynamic_array import get_len, get_item, reverse_arr, to_list, from_list
 from dynamic_array import append, remove_value, remove_index, member, concat
