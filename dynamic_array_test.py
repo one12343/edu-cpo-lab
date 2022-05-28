@@ -10,7 +10,6 @@ import math
 
 class TestMutableULList(unittest.TestCase):
 
-
     def test_cons(self):
         array = Dynamic_array()
         l1 = cons(None, cons(1, array))
@@ -167,9 +166,9 @@ class TestMutableULList(unittest.TestCase):
         self.assertEqual(concat(empty, a), a)
         self.assertEqual(concat(a, empty), a)
 
-    @given(x1 = st.lists(st.integers()),
-           x2 = st.lists(st.integers()),
-           x3 = st.lists(st.integers()))
+    @given(x1=st.lists(st.integers()),
+           x2=st.lists(st.integers()),
+           x3=st.lists(st.integers()))
     def test_monoid_associativity(self, x1, x2, x3):
         a = from_list(x1)
         b = from_list(x2)
