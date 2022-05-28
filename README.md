@@ -46,10 +46,10 @@ Initial
 
 1.Implement `dynamic_array.py` and `test_dynamic_array.py`\
 2.GitHub active successfully\
-3.Update README\
+3.Update README
 
 
-- 28.05.2022 - 0\
+- 28.05.2022 - 0
 
 1.Add API tests as is from the task\
 2.Add PBT tests for monoid properties\
