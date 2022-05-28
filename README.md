@@ -49,7 +49,7 @@ Initial
 3.Update README\
 
 
-- 28.05.2022 - 0
+- 28.05.2022 - 0\
 1.Add API tests as is from the task\
 2.Add PBT tests for monoid properties\
 3.Clean code from unneeded comments\
