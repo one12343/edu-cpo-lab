@@ -148,7 +148,8 @@ def new_item(dynamic_array):
     return new_dynamic_array
 
 
-def reverse_arr(dynamic_array):
+def reverse_arr(dynamic_array1):
+    dynamic_array=new_item(dynamic_array1)
     temp_list = []
     for i in range(dynamic_array._n):
         temp_list.append(dynamic_array._A[i])

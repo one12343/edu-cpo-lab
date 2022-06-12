@@ -10,6 +10,70 @@ import math
 
 class TestMutableULList(unittest.TestCase):
 
+    def test_api(self):
+
+        # Testing cons
+        array = Dynamic_array()
+        l1 = cons(None, cons(1, array))
+        l2 = cons(1, cons(None, array))
+        l3 = cons([3, 2], cons(None, array))
+        self.assertEqual(str(array), "[]")
+        self.assertEqual(str(l1), "[None, 1]")
+        self.assertEqual(str(l2), "[1, None]")
+        self.assertNotEqual(str(array), str(l1))
+        self.assertNotEqual(str(array), str(l2))
+        self.assertNotEqual(str(l1), str(l2))
+        self.assertEqual(str(l1), str(cons(None, cons(1, array))))
+        self.assertEqual(str(l3), "[3, 2, None]")
+
+        # Testing length
+        self.assertEqual(get_len(array), 0)
+        self.assertEqual(get_len(l1), 2)
+        self.assertEqual(get_len(l2), 2)
+
+        # Testing remove
+        self.assertEqual(get_array(remove_index(l1, 0)), [1])
+        self.assertEqual(get_array(remove_index(l1, 1)), [None])
+
+        # Testing member
+        self.assertFalse(member(None, array))
+        self.assertTrue(member(None, l1))
+        self.assertTrue(member(1, l1))
+        self.assertFalse(member(2, l1))
+
+        # Testing reverse
+        self.assertEqual(l1,reverse_arr(l2))
+
+        # Testing to_list and from_list
+        self.assertEqual(to_list(l1), [None, 1])
+        self.assertEqual(l1, from_list([None, 1]))
+
+        # Testing concat
+        self.assertEqual(concat(l1, l2), from_list([None, 1, 1, None]))
+
+        # Testing append and getitem
+        buf = []
+        for e in l1:
+            buf.append(e)
+        self.assertEqual(buf, [None, 1])
+        lst = to_list(l1) + to_list(l2)
+        for e in l1:
+            lst.remove(e)
+        for e in l2:
+            lst.remove(e)
+        self.assertEqual(lst, [])
+
+        array = Dynamic_array()
+        temp_list = [1, 2, 3, 4, 5, 6]
+        for i in temp_list:
+            array = append(array, i)
+        get_a = get_array(array)
+        self.assertEqual(get_a, temp_list)
+        temp1 = get_item(array, 2)
+        self.assertEqual(temp1, temp_list[2])
+        temp1 = get_item(array, 5)
+        self.assertEqual(temp1, temp_list[5])
+
     def test_cons(self):
         array = Dynamic_array()
         l1 = cons(None, cons(1, array))
