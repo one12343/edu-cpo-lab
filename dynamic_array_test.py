@@ -42,7 +42,7 @@ class TestMutableULList(unittest.TestCase):
         self.assertFalse(member(2, l1))
 
         # Testing reverse
-        self.assertEqual(l1,reverse_arr(l2))
+        self.assertEqual(l1, reverse_arr(l2))
 
         # Testing to_list and from_list
         self.assertEqual(to_list(l1), [None, 1])
