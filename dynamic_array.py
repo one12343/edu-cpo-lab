@@ -12,6 +12,7 @@ class Dynamic_array:
         self._n = 0  # size
         self._capacity = capacity
         self._A = make_array(self, self._capacity)
+        self._now = 0
 
     def __str__(self) -> str:
         return str(get_array(self))

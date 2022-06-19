@@ -56,15 +56,15 @@ class TestMutableULList(unittest.TestCase):
 
         # Testing append and getitem
         buf = []
-        for e in l1:
+        for e in to_list(l1):
             buf.append(e)
         self.assertEqual(buf, [None, 1])
         lst1: List[Dynamic_array] = to_list(l1)
         lst2: List[Dynamic_array] = to_list(l2)
         lst: List[Dynamic_array] = lst1 + lst2
-        for e in l1:
+        for e in to_list(l1):
             lst.remove(e)
-        for e in l2:
+        for e in to_list(l2):
             lst.remove(e)
         self.assertEqual(lst, [])
 
