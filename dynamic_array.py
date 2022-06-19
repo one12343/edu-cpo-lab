@@ -4,6 +4,7 @@ from typing import Any, List, TypeVar
 
 T = TypeVar('T')
 
+
 class Dynamic_array:
 
     def __init__(self, capacity: int = 10) -> None:
@@ -174,7 +175,8 @@ def from_list(temp_list: List[T]) -> Dynamic_array:
     return dynamic_array
 
 
-def concat(dynamic_array1: Dynamic_array, dynamic_array2: Dynamic_array) -> Dynamic_array:
+def concat(dynamic_array1: Dynamic_array,
+           dynamic_array2: Dynamic_array) -> Dynamic_array:
     temp_list: List[int] = get_array(dynamic_array1)
     return cons(temp_list, dynamic_array2)
 
