@@ -6,11 +6,13 @@ from dynamic_array import append, remove_value, remove_index, member, concat
 from dynamic_array import get_array, cons, filter, map, reduce, empty
 from dynamic_array import Dynamic_array
 import math
+from typing import List, TypeVar
 
+T = TypeVar('T')
 
 class TestMutableULList(unittest.TestCase):
 
-    def test_api(self):
+    def test_api(self) -> None:
 
         # Testing cons
         array = Dynamic_array()
@@ -56,7 +58,9 @@ class TestMutableULList(unittest.TestCase):
         for e in l1:
             buf.append(e)
         self.assertEqual(buf, [None, 1])
-        lst = to_list(l1) + to_list(l2)
+        lst1: List[Dynamic_array] = to_list(l1)
+        lst2: List[Dynamic_array] = to_list(l2)
+        lst: List[Dynamic_array] = lst1 + lst2
         for e in l1:
             lst.remove(e)
         for e in l2:
@@ -67,14 +71,14 @@ class TestMutableULList(unittest.TestCase):
         temp_list = [1, 2, 3, 4, 5, 6]
         for i in temp_list:
             array = append(array, i)
-        get_a = get_array(array)
+        get_a: List[int] = get_array(array)
         self.assertEqual(get_a, temp_list)
         temp1 = get_item(array, 2)
         self.assertEqual(temp1, temp_list[2])
         temp1 = get_item(array, 5)
         self.assertEqual(temp1, temp_list[5])
 
-    def test_cons(self):
+    def test_cons(self) -> None:
         array = Dynamic_array()
         l1 = cons(None, cons(1, array))
         l2 = cons(1, cons(None, array))
@@ -88,7 +92,7 @@ class TestMutableULList(unittest.TestCase):
         self.assertEqual(str(l1), str(cons(None, cons(1, array))))
         self.assertEqual(str(l3), "[3, 2, None]")
 
-    def length(self):
+    def length(self) -> None:
         x = [1, 2, 3]
         x2 = [1, 2, 3, 4, 5, 6]
         array = from_list(x)
@@ -96,7 +100,7 @@ class TestMutableULList(unittest.TestCase):
         self.assertEqual(get_len(array), 3)
         self.assertEqual(get_len(array2), 6)
 
-    def test_remove(self):
+    def test_remove(self) -> None:
         x = [1, 2, 3]
         array = from_list(x)
         self.assertEqual(get_array(remove_index(array, 0)), [2, 3])
@@ -107,7 +111,7 @@ class TestMutableULList(unittest.TestCase):
         self.assertEqual(get_array(remove_value(array2, 3)), [1, 2, 4, 5, 6])
         self.assertEqual(get_array(remove_value(array2, 5)), [1, 2, 3, 4, 6])
 
-    def test_member(self):
+    def test_member(self) -> None:
         x = [1, 2, 3, 4, 5, 6]
         array = from_list(x)
         x2 = [1, 2, None, 4, 5, 6]
@@ -117,33 +121,33 @@ class TestMutableULList(unittest.TestCase):
         self.assertTrue(member(1, array))
         self.assertFalse(member(3, array2))
 
-    def test_reverse(self):
+    def test_reverse(self) -> None:
         x1 = [1, 2, 3, 4, 5, 6]
         x2 = [6, 5, 4, 3, 2, 1]
         array1 = from_list(x1)
         array2 = from_list(x2)
         self.assertEqual(array1, reverse_arr(array2))
 
-    def test_concat(self):
+    def test_concat(self) -> None:
         l1 = [None, 1]
         l2 = [1, None]
         array1 = from_list(l1)
         array2 = from_list(l2)
         self.assertEqual(concat(array1, array2), from_list([None, 1, 1, None]))
 
-    def test_append_and_getitem(self):
+    def test_append_and_getitem(self) -> None:
         array = Dynamic_array()
         temp_list = [1, 2, 3, 4, 5, 6]
         for i in temp_list:
             array = append(array, i)
-        get_a = get_array(array)
+        get_a: List[int] = get_array(array)
         self.assertEqual(get_a, temp_list)
         temp1 = get_item(array, 2)
         self.assertEqual(temp1, temp_list[2])
         temp1 = get_item(array, 5)
         self.assertEqual(temp1, temp_list[5])
 
-    def test_filter(self):
+    def test_filter(self) -> None:
         x = [1, 4, 6, 7, 9, 12, 17]
         array = from_list(x)
         temp1 = filter(array, is_odd)
@@ -169,7 +173,7 @@ class TestMutableULList(unittest.TestCase):
         array5 = from_list(x4)
         self.assertEqual([2, 4], to_list(filter(array5, lambda e: e % 2 == 0)))
 
-    def test_map(self):
+    def test_map(self) -> None:
         array = from_list([2, 3, 4, 5, 6, 7, 8, 9])
         temp = map(array, my_square)
         self.assertEqual(str(temp), "[4, 9, 16, 25, 36, 49, 64, 81]")
@@ -183,7 +187,7 @@ class TestMutableULList(unittest.TestCase):
         self.assertEqual(to_list(map(array, str)), ["1", "2", "3"])
         self.assertEqual(to_list(map(array, lambda x: x + 1)), [2, 3, 4])
 
-    def test_reduce(self):
+    def test_reduce(self) -> None:
         array = from_list([1, 2, 3, 4, 5])
         result = reduce(array, my_add)
         self.assertEqual(str(result), "15")
@@ -194,7 +198,7 @@ class TestMutableULList(unittest.TestCase):
         self.assertEqual(str(result), "55")
         self.assertEqual(reduce(array, lambda st, e: st + e), 55)
 
-    def test_empty(self):
+    def test_empty(self) -> None:
         array = Dynamic_array()
         self.assertEqual(empty(array), True)
         array = append(array, 1)
@@ -204,7 +208,7 @@ class TestMutableULList(unittest.TestCase):
         array = append(array, 2)
         self.assertFalse(empty(array))
 
-    def test_iter(self):
+    def test_iter(self) -> None:
         x = [1, 2, 3]
         array = from_list(x)
         tmp = []
@@ -220,11 +224,11 @@ class TestMutableULList(unittest.TestCase):
         self.assertRaises(StopIteration, lambda: next(it))
 
     @given(st.lists(st.integers()))
-    def test_from_list_to_list_equality(self, a):
+    def test_from_list_to_list_equality(self, a: List[T]) -> None:
         self.assertEqual(to_list(from_list(a)), a)
 
     @given(st.lists(st.integers()))
-    def test_monoid_identity(self, lst):
+    def test_monoid_identity(self, lst: List[T]) -> None:
         a = from_list(lst)
         empty = Dynamic_array()
         self.assertEqual(concat(empty, a), a)
@@ -233,7 +237,8 @@ class TestMutableULList(unittest.TestCase):
     @given(x1=st.lists(st.integers()),
            x2=st.lists(st.integers()),
            x3=st.lists(st.integers()))
-    def test_monoid_associativity(self, x1, x2, x3):
+    def test_monoid_associativity(self, x1: List[T], x2: List[T],
+                                  x3: List[T]) -> None:
         a = from_list(x1)
         b = from_list(x2)
         c = from_list(x3)
@@ -244,37 +249,37 @@ class TestMutableULList(unittest.TestCase):
 
 
 # functions to test filter
-def is_odd(x):
+def is_odd(x: int) -> bool:
     return x % 2 == 1
 
 
 # Delete None or empty string
-def is_not_empty(s):
+def is_not_empty(s: str) -> bool:
     if s is not None:
         return (len(s.strip()) > 0)
     return s is not None
 
 
 # Filter out the number whose square root is an integer in 1 ~ 100
-def is_sqr(x):
+def is_sqr(x: int) -> bool:
     return math.sqrt(x) % 1 == 0
 
 
-def remove_value_2(x):
+def remove_value_2(x: int) -> bool:
     return x != 2
 
 
 # These are functions to test map
-def my_square(n):
+def my_square(n: int) -> int:
     return n * n
 
 
-def my_sqr(x):
+def my_sqr(x: int) -> int:
     return int(math.sqrt(x))
 
 
 # Test of function of reduce
-def my_add(x, y):
+def my_add(x: int, y: int) -> int:
     return x+y
 
 
