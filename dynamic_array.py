@@ -12,9 +12,6 @@ class Dynamic_array:
         self._capacity = capacity
         self._A = make_array(self, self._capacity)
 
-    def __iter__(self) -> Any:
-        return iter(self._A)
-
     def __str__(self) -> str:
         return str(get_array(self))
 
