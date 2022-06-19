@@ -6,7 +6,7 @@ from dynamic_array import append, remove_value, remove_index, member, concat
 from dynamic_array import get_array, cons, filter, map, reduce, empty
 from dynamic_array import Dynamic_array
 import math
-from typing import List, TypeVar
+from typing import List, TypeVar, Any
 
 T = TypeVar('T')
 
@@ -56,6 +56,7 @@ class TestMutableULList(unittest.TestCase):
 
         # Testing append and getitem
         buf = []
+        e: Any
         for e in to_list(l1):
             buf.append(e)
         self.assertEqual(buf, [None, 1])
